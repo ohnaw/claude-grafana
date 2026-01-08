@@ -44,25 +44,27 @@ The pre-configured dashboard includes:
 
 ### Overview
 - Total sessions, cost, tokens, lines changed, commits, PRs
+- Active time tracking (CLI and user time)
+- Productivity ratio and leverage metrics
 
 ### Cost & Token Usage
 - Cost by model over time
-- Token usage by type (input/output/cache)
+- Token usage by type (input/output/cache read/creation)
 - Token distribution by model
-- Cache hit rate gauge
-- Hourly cost breakdown
+- Cache efficiency gauge (98%+ is typical)
+- Cost per 1K output tokens
 
 ### Code Activity
 - Lines of code added/removed
 - Git commits and pull requests
 
-### Tool Usage
-- Code edit tool usage by tool type
-- Accept/reject decisions
-- Edits by programming language
+### Time & Productivity
+- Active time distribution
+- CLI vs user time comparison
+- Peak productivity leverage
 
 ### Event Logs
-- Real-time Claude Code event logs
+- Real-time Claude Code event logs (via Loki)
 
 ## Commands
 
