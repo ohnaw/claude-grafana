@@ -151,6 +151,19 @@ Edit `config/otel-collector-config.yaml`
 3. Verify environment: `echo $CLAUDE_CODE_ENABLE_TELEMETRY`
 4. Try console exporter first: `export OTEL_METRICS_EXPORTER=console`
 
+### Metrics being dropped with "invalid temporality" error?
+
+Claude Code sends **delta** temporality metrics, but Prometheus requires **cumulative**. The OTel Collector config includes a `deltatocumulative` processor to handle this conversion. If you see errors like:
+
+```
+Exporting failed. Dropping data. error: invalid temporality and type combination
+```
+
+Ensure your collector config includes:
+1. The `deltatocumulative` processor defined in the processors section
+2. The processor added to the metrics pipeline: `processors: [memory_limiter, deltatocumulative, batch]`
+3. OTel Collector version 0.111.0+ (earlier versions don't include this processor)
+
 ### Grafana shows "No data"?
 
 1. Ensure you've used Claude Code after enabling telemetry

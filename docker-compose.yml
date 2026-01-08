@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   # OpenTelemetry Collector - receives telemetry from Claude Code
   otel-collector:
