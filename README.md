@@ -2,6 +2,8 @@
 
 A complete observability stack for monitoring Claude Code usage, costs, and performance using OpenTelemetry, Prometheus, Loki, and Grafana.
 
+![Dashboard Overview](images/dashboard-overview.png)
+
 ## Quick Start
 
 ### 1. Start the Stack
@@ -18,12 +20,28 @@ This starts:
 
 ### 2. Configure Claude Code
 
+**Option A: Use the setup script (each terminal session)**
+
 ```bash
 source setup-env.sh
 claude
 ```
 
-Or set environment variables manually:
+**Option B: Create a convenience alias (recommended)**
+
+Add this to your `~/.zshrc` or `~/.bashrc`:
+
+```bash
+alias claude-telemetry='source /path/to/claude_grafana/setup-env.sh && claude'
+```
+
+Then use:
+- `claude` - Normal Claude Code (no telemetry)
+- `claude-telemetry` - Claude Code with telemetry enabled
+
+This gives you control over when telemetry is collected without the overhead of permanent environment variables.
+
+**Option C: Set environment variables manually**
 
 ```bash
 export CLAUDE_CODE_ENABLE_TELEMETRY=1
@@ -37,6 +55,16 @@ claude
 ### 3. View Dashboards
 
 Open [http://localhost:3000](http://localhost:3000) (login: admin/admin)
+
+### 4. Shutting Down
+
+When you're done, exit Claude normally. The Docker containers will continue running in the background. To stop them:
+
+```bash
+make down
+```
+
+This command can be run from any terminal as long as you're in the project root directory. Use `make clean` instead if you want to remove all collected data.
 
 ## Dashboard Features
 

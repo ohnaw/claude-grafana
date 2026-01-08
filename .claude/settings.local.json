@@ -8,7 +8,16 @@
       "Bash(gh repo create:*)",
       "Bash(mkdir:*)",
       "Bash(chmod:*)",
-      "Bash(mdfind:*)"
+      "Bash(mdfind:*)",
+      "Bash(echo:*)",
+      "Bash(curl:*)",
+      "Bash(docker logs:*)",
+      "Bash(export CLAUDE_CODE_ENABLE_TELEMETRY=1)",
+      "Bash(export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317)",
+      "Bash(docker ps:*)",
+      "Bash(docker compose:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
