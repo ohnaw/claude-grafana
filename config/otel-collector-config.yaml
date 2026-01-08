@@ -14,6 +14,10 @@ processors:
     check_interval: 1s
     limit_mib: 512
     spike_limit_mib: 128
+  # Convert delta temporality to cumulative for Prometheus compatibility
+  deltatocumulative:
+    max_stale: 10m
+    max_streams: 10000
 
 exporters:
   # Export metrics to Prometheus
@@ -37,7 +41,7 @@ service:
   pipelines:
     metrics:
       receivers: [otlp]
-      processors: [memory_limiter, batch]
+      processors: [memory_limiter, deltatocumulative, batch]
       exporters: [prometheusremotewrite]
     logs:
       receivers: [otlp]
