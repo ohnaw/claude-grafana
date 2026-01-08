@@ -1,0 +1,20 @@
+# Data volumes (managed by Docker)
+data/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Environment files with secrets
+.env.local
+.env.*.local
+
+# Logs
+*.log
