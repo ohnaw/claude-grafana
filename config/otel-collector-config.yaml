@@ -25,14 +25,9 @@ exporters:
   # Export logs to Loki
   loki:
     endpoint: http://loki:3100/loki/api/v1/push
-    labels:
-      attributes:
-        service.name: "service_name"
-        tool_name: "tool_name"
-        model: "model"
-        event.name: "event_name"
-      resource:
-        service.name: "service_name"
+    default_labels_enabled:
+      exporter: false
+      job: true
 
   # Debug output (optional, comment out in production)
   debug:
